@@ -1,0 +1,37 @@
+{
+  "pay-api": [
+    {
+      "firstName": "KurAc",
+      "lastName": "Kurosava",
+      "address": "cxczczxcx",
+      "iban": "33,333",
+      "bic": "333",
+      "ammount": "4448",
+      "id": 1
+    },
+    {
+      "firstName": "Kurcina",
+      "lastName": "Turcina",
+      "address": "Jebivetar",
+      "iban": "33,333",
+      "bic": "66,666",
+      "ammount": "77777",
+      "id": 2
+    },
+    {
+      "firstName": "dsadsadsad",
+      "lastName": "dsadsdasdssd",
+      "address": "dasdasdasdsdsa",
+      "iban": "NaN",
+      "bic": "323,232,332",
+      "ammount": "32333",
+      "id": 3
+    },
+    {
+      "firstName": "Marko",
+      "lastName": "Markovic",
+      "address": "Gogoljeva 35",
+      "id": 4
+    }
+  ]
+}
