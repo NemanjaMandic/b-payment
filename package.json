@@ -5,22 +5,30 @@
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
+    "@material-ui/core": "^3.9.3",
     "axios": "^0.18.0",
+    "lodash": "^4.17.11",
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "react-outside-click-handler": "^1.2.3",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-form": "8.1",
-    "redux-thunk": "^2.3.0"
+    "redux-form-website-template": "^1.0.6",
+    "redux-thunk": "^2.3.0",
+    "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",
-    "mock:server": "cd server/api && yarn start",
+    "run:server": "cd server/api && yarn start",
     "install:server": "cd server/api && yarn install",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "format": "pretty-quick",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -1,19 +1,22 @@
 import React from 'react';
-import { InputWrapper, Label, Input } from './style';
+import { InputWrapper, Label, ErrorMessage, Input } from './style';
 
- const InputField = ({input, label, meta, type}) => {
-       
-    console.log(meta);
-    return(
-       <InputWrapper>
-            <Label>{label}</Label>
-            <Input {...input} autoComplete="off" type={type} />
-            <div>
-            {meta.touched && meta.error &&<span>{meta.error}</span>} 
-            </div>
-            
-       </InputWrapper>
-    );
-}
+const InputField = ({ input, placeholder, label, meta, type }) => {
+  console.log(meta);
+  return (
+    <InputWrapper>
+      <Label>{label}</Label>
+      <Input
+        {...input}
+        placeholder={placeholder}
+        autoComplete="off"
+        type={type}
+      />
+      <ErrorMessage>
+        {meta.touched && meta.error && <span>{meta.error}</span>}
+      </ErrorMessage>
+    </InputWrapper>
+  );
+};
 
 export default InputField;
