@@ -1,35 +1,28 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Form from '../../components/Form';
-import { connect, formValues } from 'react-redux';
+import { connect } from 'react-redux';
 import { submitForm } from '../../store/actions';
 import ConfirmModal from '../ConfirmModal';
+import { Root, List, Item } from './style';
 import { reset } from 'redux-form';
-import styled from '@emotion/styled';
 
-const Root = styled('div')`
-  font-family: 'Heebo', sans-serif;
-  background: #3a3a3a;
-  @media (min-width: 768px) {
-    padding: 120px;
-  }
-`;
-
-const ListWrapper = styled('div')``;
-const List = styled('ul')`
-  list-style: none;
-  background: red;
-`;
-
-const Item = styled('li')`
-  font-size: 20px;
-  margin-bottom: 10px;
-`;
+const propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  address: PropTypes.string,
+  iban: PropTypes.string,
+  bic: PropTypes.string,
+  ammount: PropTypes.number
+};
 class App extends Component {
   state = {
     showModal: false
   };
+
   onSubmit = formValues => {
     const { resetForm } = this.props;
+    console.log(formValues);
     //  alert(
     //          `Ime: ${formValues.firstName}
     //          Prezime: ${formValues.lastName}
@@ -47,6 +40,7 @@ class App extends Component {
 
   onConfirmModal = formValues => {
     //this.props.submitForm(formValues);
+    console.log(formValues);
     this.setState({
       showModal: false
     });
@@ -68,23 +62,22 @@ class App extends Component {
       ammount,
       currency
     } = this.props.payment.paymentForm.values;
-    if (!this.props.payment) {
-      return 'jesi siguran da kurac palac...';
-    }
+
     return (
-      <ListWrapper>
-        <List>
-          <Item>{firstName}</Item>
-          <Item>{lastName}</Item>
-          <Item>{address}</Item>
-          <Item>{iban}</Item>
-          <Item>{bic}</Item>
+      <List>
+        {firstName && <Item>First Name: {firstName}</Item>}
+        {lastName && <Item>Last Name: {lastName}</Item>}
+        {address && <Item>Address: {address}</Item>}
+        {iban && <Item>IBAN: {iban}</Item>}
+        {bic && <Item>BIC: {bic}</Item>}
+        {ammount && (
           <Item>
+            Ammount:
             {ammount}
             {currency}
           </Item>
-        </List>
-      </ListWrapper>
+        )}
+      </List>
     );
   };
   render() {
@@ -106,6 +99,8 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = propTypes;
 
 const mapStateToProps = state => {
   return { payment: state.form };

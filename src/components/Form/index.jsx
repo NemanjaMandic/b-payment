@@ -1,51 +1,38 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import InputField from '../InputField';
-import {
-  maxLength30,
-  minLength,
-  normalizeIban,
-  normalizeBic,
-  validate
-} from '../../utils/validations';
+import { normalizeIban, normalizeBic, validate } from '../../utils/validations';
 import {
   FormWrapper,
   Title,
   NameRow,
-  Row,
   Header,
   ButtonWrapper,
   PayButton
 } from './style';
 
 class Form extends Component {
-
-  onSubmit = formValues => {
-    //const { reset } = this.props;
-    this.props.onSubmit(formValues);
-    //reset('paymentForm');
-  };
+  // onSubmit = formValues => {
+  //   //const { reset } = this.props;
+  //   this.props.onSubmit(formValues);
+  //   //reset('paymentForm');
+  // };
 
   render() {
-    const { handleSubmit, pristine, invalid, submitting, value } = this.props;
+    const { handleSubmit, pristine, invalid, submitting } = this.props;
 
     return (
       <FormWrapper>
         <Header>
           <Title>Payment Information</Title>
         </Header>
-        <form onSubmit={handleSubmit(this.onSubmit)}>
+        <form onSubmit={handleSubmit}>
           <NameRow>
             <Field name="firstName" component={InputField} label="First Name" />
             <Field name="lastName" component={InputField} label="Last Name" />
           </NameRow>
 
-          <Field
-            name="address"
-            component={InputField}
-            label="Address"
-            format={this.format_num}
-          />
+          <Field name="address" component={InputField} label="Address" />
           <Field
             name="iban"
             component={InputField}

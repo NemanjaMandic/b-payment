@@ -1,12 +1,3 @@
-const maxLength = max => value =>
-  value && value.length > max ? `Must be ${max} characters or less` : undefined;
-export const maxLength30 = maxLength(30);
-
-export const notEmpty = min => value =>
-  !value.firstName ? 'You must enter First Name' : undefined;
-
-export const required = value => (value ? undefined : 'Required');
-
 export const validate = formValues => {
   const errors = {};
   if (!formValues.firstName) {
@@ -35,27 +26,27 @@ export const validate = formValues => {
 
   if (formValues.ammount) {
     if (formValues.ammount < 10) {
-      errors.ammount = 'Nemoze manje od 10';
+      errors.ammount = '10 euros is minimum';
     }
     if (formValues.ammount > 15000) {
-      errors.ammount = '15000 je maksimum';
+      errors.ammount = '15000 euros is maximum';
     }
   }
 
   if (!formValues.iban) {
-    errors.iban = 'Nemoze pracno';
+    errors.iban = 'Please enter IBAN value';
   }
   if (formValues.iban) {
     const regex = /[NL]{2}\d{2}[A-Z]{4}\d{10}/gm;
     if (!regex.test(formValues.iban)) {
-      errors.iban = 'Nije dobar format';
+      errors.iban = 'Please use the right IBAN format';
     }
   }
 
   if (formValues.bic) {
     const regex = /[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}[A-Z0-9]{0,3}/gm;
     if (!regex.test(formValues.bic)) {
-      errors.bic = 'Nije dobar format';
+      errors.bic = 'Please use the right BIC format';
     }
   }
 

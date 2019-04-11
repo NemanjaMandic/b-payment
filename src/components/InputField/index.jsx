@@ -1,8 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { InputWrapper, Label, ErrorMessage, Input } from './style';
 
+const propTypes = {
+  input: PropTypes.object,
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  meta: PropTypes.object,
+  type: PropTypes.string
+};
+
 const InputField = ({ input, placeholder, label, meta, type }) => {
-  console.log(meta);
   return (
     <InputWrapper>
       <Label>{label}</Label>
@@ -18,5 +26,7 @@ const InputField = ({ input, placeholder, label, meta, type }) => {
     </InputWrapper>
   );
 };
+
+InputField.propTypes = propTypes;
 
 export default InputField;
