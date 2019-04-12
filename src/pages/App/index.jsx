@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Form from '../../components/Form';
+import Form from '../Form';
 import { connect } from 'react-redux';
+import { reset } from 'redux-form';
 import { submitForm } from '../../store/actions';
 import ConfirmModal from '../ConfirmModal';
-import { Root, List, Item } from './style';
-import { reset } from 'redux-form';
+import { Root, List, Item, Label } from './style';
 
 const propTypes = {
   firstName: PropTypes.string,
@@ -15,44 +15,36 @@ const propTypes = {
   bic: PropTypes.string,
   ammount: PropTypes.number
 };
+
 class App extends Component {
   state = {
     showModal: false
   };
 
   onSubmit = formValues => {
-    const { resetForm } = this.props;
-    console.log(formValues);
-    //  alert(
-    //          `Ime: ${formValues.firstName}
-    //          Prezime: ${formValues.lastName}
-    //          Adresa: ${formValues.address}
-    //      `);
-    //this.props.submitForm(formValues);
-
-    this.setState({
-      showModal: true
-    });
-
-    //this.props.submitForm(formValues);
-    console.log('PROPS', this.props.submitForm(formValues));
+    this.props.submitForm(formValues);
   };
 
-  onConfirmModal = formValues => {
-    //this.props.submitForm(formValues);
-    console.log(formValues);
+  onConfirmModal = () => {
+    this.onSubmit(this.props.payment.paymentForm.values);
     this.setState({
       showModal: false
     });
+    this.props.reset('paymentForm');
   };
 
+  openModal = () => {
+    this.setState({
+      showModal: true
+    });
+  };
   onCancelModal = () => {
     this.setState({
       showModal: false
     });
   };
 
-  renderContent = formValues => {
+  renderContent = () => {
     const {
       firstName,
       lastName,
@@ -65,14 +57,35 @@ class App extends Component {
 
     return (
       <List>
-        {firstName && <Item>First Name: {firstName}</Item>}
-        {lastName && <Item>Last Name: {lastName}</Item>}
-        {address && <Item>Address: {address}</Item>}
-        {iban && <Item>IBAN: {iban}</Item>}
-        {bic && <Item>BIC: {bic}</Item>}
+        {firstName && (
+          <Item>
+            <Label>First Name: </Label> {firstName}
+          </Item>
+        )}
+        {lastName && (
+          <Item>
+            <Label>Last Name: </Label> {lastName}
+          </Item>
+        )}
+        {address && (
+          <Item>
+            <Label>Address: </Label> {address}
+          </Item>
+        )}
+        {iban && (
+          <Item>
+            <Label>IBAN: </Label> {iban}
+          </Item>
+        )}
+        {bic && (
+          <Item>
+            <Label>BIC: </Label> {bic}
+          </Item>
+        )}
         {ammount && (
           <Item>
-            Ammount:
+            <Label>Ammount:</Label>
+
             {ammount}
             {currency}
           </Item>
@@ -82,14 +95,14 @@ class App extends Component {
   };
   render() {
     const { showModal } = this.state;
-
+    console.log('IzAppAAA', this.props);
     return (
       <Root>
-        <Form onSubmit={this.onSubmit} />
+        <Form onSubmit={this.openModal} />
 
         {showModal && (
           <ConfirmModal
-            title="Payement Details"
+            title="Payment Details"
             content={this.renderContent()}
             onConfirm={this.onConfirmModal}
             onCancel={this.onCancelModal}
@@ -105,7 +118,8 @@ App.propTypes = propTypes;
 const mapStateToProps = state => {
   return { payment: state.form };
 };
+
 export default connect(
   mapStateToProps,
-  { submitForm }
+  { submitForm, reset }
 )(App);

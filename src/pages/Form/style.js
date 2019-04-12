@@ -1,14 +1,15 @@
 import styled from '@emotion/styled';
 
 export const Header = styled('div')`
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #333333;
+  margin-bottom: 40px;
   @media (min-width: 768px) {
-    margin: 0 20px;
+    margin: 0 20px 30px 20px;
   }
 `;
 export const Title = styled('h3')`
   font-size: 40px;
-  color: red;
+  color: #333333;
 `;
 
 export const FormWrapper = styled('div')`

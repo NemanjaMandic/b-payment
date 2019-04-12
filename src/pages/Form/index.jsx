@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import InputField from '../InputField';
+import { Field, reduxForm, reset } from 'redux-form';
+import InputField from '../../components/InputField';
 import { normalizeIban, normalizeBic, validate } from '../../utils/validations';
 import {
   FormWrapper,
@@ -19,8 +19,8 @@ class Form extends Component {
   // };
 
   render() {
-    const { handleSubmit, pristine, invalid, submitting } = this.props;
-
+    const { handleSubmit, pristine, invalid, submitting, reset } = this.props;
+    console.log('DIs Props', this.props);
     return (
       <FormWrapper>
         <Header>

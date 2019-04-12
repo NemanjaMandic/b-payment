@@ -9,7 +9,7 @@ export const Title = styled('p')`
 
 export const Row = styled('div')`
   display: flex;
-  border-top: 1px solid black;
+  border-top: 1px solid #e6e6e6;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 `;
@@ -32,6 +32,6 @@ export const Action = styled('button')`
   }
 
   & + & {
-    border-left: 1px solid black;
+    border-left: 1px solid #e6e6e6;
   }
 `;

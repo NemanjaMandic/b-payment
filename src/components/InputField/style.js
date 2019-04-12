@@ -1,9 +1,5 @@
 import styled from '@emotion/styled';
 
-export const FormWrapper = styled('div')`
-  border: 2px solid black;
-`;
-
 export const InputWrapper = styled('div')`
   margin-bottom: 20px;
   position: relative;
@@ -20,6 +16,7 @@ export const InputWrapper = styled('div')`
 
 export const Label = styled('label')`
   text-transform: uppercase;
+  font-size: 15px;
 `;
 
 export const Input = styled('input')`
@@ -27,7 +24,7 @@ export const Input = styled('input')`
   border-radius: 5px;
   height: 36px;
   width: 100%;
-  &:focus{
+  &:focus {
     outline: none;
     border: 6px;
     border: 1px solid #5757db;

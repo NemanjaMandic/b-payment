@@ -13,6 +13,12 @@ export const List = styled('ul')`
 `;
 
 export const Item = styled('li')`
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 10px;
+`;
+
+export const Label = styled('span')`
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
 `;
