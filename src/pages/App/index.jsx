@@ -95,7 +95,6 @@ class App extends Component {
   };
   render() {
     const { showModal } = this.state;
-    console.log('IzAppAAA', this.props);
     return (
       <Root>
         <Form onSubmit={this.openModal} />
