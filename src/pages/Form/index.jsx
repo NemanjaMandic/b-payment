@@ -29,7 +29,6 @@ const Form = ({ handleSubmit, pristine, invalid, submitting }) => {
           component={InputField}
           type="text"
           label="IBAN"
-          placeholder="Format Example: NL23PSJF7216471865"
           normalize={normalizeIban}
         />
         <Field
@@ -59,6 +58,6 @@ const Form = ({ handleSubmit, pristine, invalid, submitting }) => {
 
 export default reduxForm({
   form: 'paymentForm',
-  initialValues: { ammount: '0', iban: 'NL23PSJF7216471865', currency: '€' },
+  initialValues: { ammount: '0', currency: '€' },
   validate
 })(Form);

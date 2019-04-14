@@ -169,6 +169,16 @@
       "address": "Jovanova 30, Beograd",
       "bic": "DSDSSDDSDSD",
       "id": 20
+    },
+    {
+      "ammount": "123",
+      "iban": "NL23PSJF7216471865",
+      "currency": "€",
+      "firstName": "Davor",
+      "lastName": "Danilovic",
+      "address": "ssdsadadasd dsadsasa",
+      "bic": "FFFDFDFDFDF",
+      "id": 21
     }
   ]
 }

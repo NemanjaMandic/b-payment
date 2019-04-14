@@ -43,6 +43,9 @@ export const validate = formValues => {
     }
   }
 
+  if (!formValues.bic) {
+    errors.bic = 'Please enter BIC value';
+  }
   if (formValues.bic) {
     const regex = /[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}[A-Z0-9]{0,3}/gm;
     if (!regex.test(formValues.bic)) {
