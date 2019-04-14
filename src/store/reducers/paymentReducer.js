@@ -1,5 +1,4 @@
-import _ from 'lodash';
-import { OPEN_MODAL, CLOSE_MODAL, SUBMIT_FORM } from '../actions/types';
+import { SUBMIT_FORM } from '../actions/types';
 
 export default (state = {}, action) => {
   switch (action.type) {
